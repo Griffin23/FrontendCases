@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Province - city - select </title>
+	<meta name="Generator" content="NPP-Plugin">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div>
+		<select id="province-selector">
+		</select>
+		<br>
+		<select>
+		</select>
+	</div>
+	<script src="./js/province-city.js"></script>
+	<script>
+		var provinces = dsy.Items['0_0'];
+		var selectors = document.getElementsByTagName('select');
+		var provinceSelector = selectors[0];
+		loadOptions(provinceSelector, provinces);
+		var cities = dsy.Items['0_0_0'];
+		var citySelector = selectors[1];
+		loadOptions(citySelector, cities);
+		
+		provinceSelector.addEventListener('change', loadCites);
+		
+		function loadOptions(selector, values, needRemoveOptions) {
+			if (needRemoveOptions) {
+				for (var i = selector.length - 1; i >= 0; i--) {
+					selector.removeChild(selector[i]);
+				}
+			}
+			var isProvinceSelector = (selector.getAttribute('id') == 'province-selector');
+			for (var i = 0; i < values.length; i++) {
+				var option = document.createElement('option');
+				if (isProvinceSelector) {
+					option.setAttribute('provinceid', i);
+				}
+				option.value = values[i];
+				option.text = values[i];
+				selector.append(option);
+			}
+		}
+		
+		function loadCites() {
+			var selectedIndex = this.selectedIndex;
+			var provinceid = provinceSelector[selectedIndex].getAttribute('provinceid');
+			var cities = dsy.Items['0_0_' + provinceid];
+			var needRemoveOptions = true;
+			loadOptions(citySelector, cities, needRemoveOptions);
+		}
+	</script>
+</body>
+</html>
