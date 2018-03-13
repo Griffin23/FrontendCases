@@ -38,7 +38,7 @@
 			for (var i = 0; i < values.length; i++) {
 				var option = document.createElement('option');
 				if (isProvinceSelector) {
-					option.setAttribute('provinceid', i);
+					option.setAttribute('data-provinceid', i);
 				}
 				option.value = values[i];
 				option.text = values[i];
@@ -48,7 +48,7 @@
 		
 		function loadCites() {
 			var selectedIndex = this.selectedIndex;
-			var provinceid = provinceSelector[selectedIndex].getAttribute('provinceid');
+			var provinceid = provinceSelector[selectedIndex].getAttribute('data-provinceid');
 			var cities = dsy.Items['0_0_' + provinceid];
 			var needRemoveOptions = true;
 			loadOptions(citySelector, cities, needRemoveOptions);
