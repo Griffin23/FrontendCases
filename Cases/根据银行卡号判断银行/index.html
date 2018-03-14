@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cardbin - BankName</title>
+	<meta name="Generator" content="NPP-Plugin">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+</head>
+<body>
+	<div>
+		<span>get bankname by blur event</span>
+		<br>
+		<input type="text" id="cardno">
+		<br>
+		<input type="text" disabled="disabled" id="bankname">
+	</div>
+	<script src="./js/cardbin-bankname.js"></script>
+	<script>
+		var cardNoInput = document.getElementById('cardno');
+		var bankNameInput = document.getElementById('bankname');
+		cardNoInput.addEventListener('blur', function() {
+			var cardNo = cardNoInput.value;
+			if (cardNo) {
+				var bankName = getBankNameByCardNo(cardNo);
+				bankNameInput.value = bankName;
+			}
+		});		
+	</script>
+</body>
+</html>
