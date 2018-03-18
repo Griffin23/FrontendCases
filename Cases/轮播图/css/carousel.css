@@ -1,0 +1,47 @@
+.none {
+	display: none;
+}
+.carousel-status {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    z-index: 990;
+    cursor: pointer;
+}
+.carousel-div {
+	width: 300px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+.carousel-ul {
+	/* 需要手动更改 */
+	width: 300%;
+	padding-left: 0;
+	transition-duration: 1s;
+}
+.carousel-list {
+	display: block;
+	float: left;
+	/* 需要手动更改 */
+	width: 33.33%;
+	list-style: none;
+}
+.carousel-button {
+	/* 需要手动更改 */
+    width: 60px;
+    margin: 0 auto;
+}
+.carousel-button span {
+    display: inline-block;
+    float: left;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #bdbdbd;
+    cursor: pointer;
+}
+.carousel-button .this-carousel-span {
+    background: #0093d0;
+}
