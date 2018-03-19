@@ -1,0 +1,58 @@
+.inq-btn {
+	width: 120px;
+	display: block;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	background: #ff8400;
+	border: none;
+	font-size: 14px;
+	border-radius: 3px;
+}
+.inq-btn a {
+	color:#fff;
+}
+.inq-btn-lg:hover,.inq-btn:hover,.inq-btn-md:hover,.inq-btn-new:hover {
+	color:#fff;
+}
+.alertinfo-container {
+	width: 400px;
+	position: absolute;
+	z-index: 10005;
+	top: 200px;
+	left: 40%;
+	background: #fff;
+}
+.alertinfo-container h3 {
+	font-size: 16px;
+	line-height: 40px;
+	background: #004385;
+	margin: 0;
+	color: #fff;
+	padding: 0 10px;
+}
+.alertinfo-container .alert {
+	padding: 6px;
+}
+.alertinfo-container .alert h3 {
+	font-size: 14px;
+	line-height: 30px;
+	background: none;
+	padding: 0;
+	color: #3a87ad;
+}
+.alertinfo-container h3 span {
+	line-height: 40px;
+	cursor: pointer;
+	font-weight: normal;
+}
+.mask {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10001;
+	background: #000;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}

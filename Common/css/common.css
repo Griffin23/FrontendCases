@@ -6,3 +6,42 @@
 	background-color: yellow;
 }
 /* End background color */
+
+/* Start font */
+.font14 {
+	font-size: 14px;
+}
+/* End font */
+
+/* Start layout */
+.overflow-hid {
+	overflow: hidden;
+}
+.none {
+	display: none;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.m10 {
+	margin: 10px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.p20 {
+	padding: 20px;
+}
+/* End layout */
+
+/* Start tag a */
+a {
+	cursor: pointer;
+}
+a:hover {
+	text-decoration:none;
+}
+/* End tag a */
