@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Add text to clipboard</title>
+	<meta charset="utf-8">
+	<meta name="Generator" content="NPP-Plugin">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+</head>
+<body>
+	<div>这里是一些用来测试的文字，复制后会自动添加一些信息到剪贴板</div>
+	<script type="text/javascript">
+		// 方法一 直接改变剪贴板数据
+		function addText(e) {
+			var text = 'Author: OOOOO',
+				clipBoardText = window.getSelection() + text,
+				clipBoard = e.clipboardData || window.clipboardData;
+			if (clipBoard) {
+				clipBoard.setData('Text', clipBoardText);
+				e.preventDefault();
+			}
+		}
+		
+		// 方法二 改变选中复制的元素
+		/*function addText() {
+			var selection = window.getSelection(),
+				text = 'Author: XXXXX',
+				clipBoardText = selection + text,
+				newdiv = document.createElement('div');
+
+			newdiv.style.position = 'absolute';
+			newdiv.style.left = '-99999px';
+
+			document.body.appendChild(newdiv);
+			newdiv.innerHTML = clipBoardText;
+			selection.selectAllChildren(newdiv);
+
+			window.setTimeout(function () {
+				document.body.removeChild(newdiv);
+			}, 100);
+		}*/
+		
+		document.addEventListener('copy', addText);
+	</script>
+</body>
+</html>
