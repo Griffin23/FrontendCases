@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <!-- #region glitch text-->
     <style>
         .background {
             text-align: center;
@@ -305,6 +306,171 @@
     <div class="background" style="margin-top:100px">
         <div class="glitch2" data-text="FOOBAR">FOOBAR</div>
     </div>
+    <!-- #endregion -->
+
+    <!-- #region glitch image -->
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .img-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes img-anim-1 {
+            0% {
+                clip-path: inset(80% 0 22% 0);
+            }
+
+            6.6666666667% {
+                clip-path: inset(6% 0 22% 0);
+            }
+
+            13.3333333333% {
+                clip-path: inset(33% 0 30% 0);
+            }
+
+            20% {
+                clip-path: inset(0 0 32% 0);
+            }
+
+            26.6666666667% {
+                clip-path: inset(64% 0 26% 0);
+            }
+
+            33.3333333333% {
+                clip-path: inset(17% 0 29% 0);
+            }
+
+            40% {
+                clip-path: inset(59% 0 33% 0);
+            }
+
+            46.6666666667% {
+                clip-path: inset(15% 0 55% 0);
+            }
+
+            53.3333333333% {
+                clip-path: inset(52% 0 25% 0);
+            }
+
+            60% {
+                clip-path: inset(0 0 33% 0);
+            }
+
+            66.6666666667% {
+                clip-path: inset(75% 0 26% 0);
+            }
+
+            73.3333333333% {
+                clip-path: inset(19% 0 28% 0);
+            }
+
+            80% {
+                clip-path: inset(55% 0 26% 0);
+            }
+
+            86.6666666667% {
+                clip-path: inset(0 0 48% 0);
+            }
+
+            93.3333333333% {
+                clip-path: inset(10% 0 21% 0);
+            }
+
+            100% {
+                clip-path: inset(5% 0 33% 0);
+            }
+        }
+
+        @keyframes img-anim-2 {
+            0% {
+                clip-path: inset(26% 0 32% 0);
+            }
+
+            6.6666666667% {
+                clip-path: inset(70% 0 33% 0);
+            }
+
+            13.3333333333% {
+                clip-path: inset(0 0 39% 0);
+            }
+
+            20% {
+                clip-path: inset(19% 0 50% 0);
+            }
+
+            26.6666666667% {
+                clip-path: inset(0 0 22% 0);
+            }
+
+            33.3333333333% {
+                clip-path: inset(19% 0 29% 0);
+            }
+
+            40% {
+                clip-path: inset(42% 0 26% 0);
+            }
+
+            46.6666666667% {
+                clip-path: inset(38% 0 21% 0);
+            }
+
+            53.3333333333% {
+                clip-path: inset(0 0 28% 0);
+            }
+
+            60% {
+                clip-path: inset(46% 0 21% 0);
+            }
+
+            66.6666666667% {
+                clip-path: inset(6% 0 24% 0);
+            }
+
+            73.3333333333% {
+                clip-path: inset(16% 0 25% 0);
+            }
+
+            80% {
+                clip-path: inset(54% 0 40% 0);
+            }
+
+            86.6666666667% {
+                clip-path: inset(0 0 35% 0);
+            }
+
+            93.3333333333% {
+                clip-path: inset(13% 0 33% 0);
+            }
+
+            100% {
+                clip-path: inset(3% 0 20% 0);
+            }
+        }
+
+        .img-container img:nth-child(2) {
+            position: absolute;
+            left: -1px;
+            animation: img-anim-1 2s infinite linear alternate-reverse;
+        }
+
+        .img-container img:nth-child(3) {
+            position: absolute;
+            left: 2px;
+            animation: img-anim-2 3s infinite linear alternate-reverse;
+        }
+    </style>
+    <div class="container" style="margin-top:100px">
+        <div class="img-container">
+            <img src="./heat.png" alt="">
+            <img src="./heat.png" alt="">
+            <img src="./heat.png" alt="">
+        </div>
+    </div>
+    <!-- #endregion -->
 </body>
 
 </html>
