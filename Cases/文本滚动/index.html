@@ -1,39 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文字无限轮播</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #wrap {
+      overflow: hidden;
+      position: relative;
+      width: 200px;
+      height: 20px;
+      white-space: nowrap;
+    }
+
+    #inner {
+      position: absolute;
+      animation: slide 5s linear infinite;
+    }
+
+    #first {
+      display: inline-block;
+      border: 1px solid red;
+    }
+
+    #second {
+      display: inline-block;
+      border: 1px solid green;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
 </head>
+
 <body>
-<style>
-  .container {
-    width: 50px;
-    height: 20px;
-    overflow: hidden;
-  }
-
-  .container .text {
-    display: inline-block;
-    white-space: nowrap;
-    animation: word-animation 3s linear infinite;
-  }
-
-  @keyframes word-animation {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-</style>
-<div class="container">
-  <span class="text">
-    我是一段文本
-  </span>
+<div id="wrap">
+  <div id="inner">
+    <span id="first">文字无限轮播</span>
+    <span id="second">文字无限轮播</span>
+  </div>
 </div>
 </body>
+
 </html>
