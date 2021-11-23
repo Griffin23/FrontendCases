@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <h2>scroll num</h2>
+    <hr>
+
+    <style>
+        .container-outer {
+            width: 20px;
+            height: 30px;
+            overflow: hidden;
+            border: solid 2px black;
+        }
+        .container {
+            animation: anime .5s linear infinite;
+        }
+        .container > div {
+            line-height: 30px;
+            text-align: center;
+        }
+        @keyframes anime {
+            from {
+                /* 11个数，每个数占9.09% */
+                transform: translateY(-90.91%);
+                filter: url(#gaussian-blur)
+            }
+            to {
+                transform: translateY(0);
+                filter: url(#gaussian-blur)
+            }
+        }
+    </style>
+
+    <div class="container-outer">
+        <div class="container">
+            <div>0</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>0</div>
+        </div>
+    </div>
+
+    <!-- 高斯模糊效果 svg -->
+    <svg width="0" height="0">
+        <filter id="gaussian-blur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0 2" />
+        </filter>
+    </svg>
+
+    <script>
+
+        // 自动生成回弹效果css
+        genBounceStyle()
+
+        let option = {
+            resultNum: 6, // 结果
+            animationTimeMs: 1000, // 翻转数字的动画时间
+            isShowResultBounce: true, // 是否启用结果回弹效果
+            isShowContianerBounce: true // 是否启用容器回弹效果
+        }
+
+        setTimeout(() => {
+            let dom = document.getElementsByClassName('container')[0]
+            setResultNumber(dom, option)
+        }, option.animationTimeMs)
+
+        function setResultNumber (dom, option) {
+            dom.style.transform = `translateY(${option.resultNum * -9.09}%)`
+            setBounceEffect(dom, option.resultNum)
+        }
+
+        // 设置回弹效果
+        function setBounceEffect (dom, num) {
+            // 设置动画效果
+            option.isShowResultBounce && (dom.style.animation = `num-bounce-${num} 1s forwards`)
+            option.isShowContianerBounce && (dom.parentNode.style.animation = `container-bounce 1s forwards`)
+        }
+        
+        // 自动生成回弹效果css
+        function genBounceStyle () {
+            let offsetArr = [-7, 3, -1, 0.6, -0.3]
+            let containerBounceKeyframes = `
+                @keyframes container-bounce {
+                    0% {
+                        transform: translateY(0%);
+                        filter: none;
+                    }
+                    25% {
+                        transform: translateY(${offsetArr[1] * 2}%);
+                    }
+                    50% {
+                        transform: translateY(${offsetArr[2] * 2}%);
+                    }
+                    75% {
+                        transform: translateY(${offsetArr[3] * 2}%);
+                    }
+                    85% {
+                        transform: translateY(${offsetArr[4] * 2}%);
+                    }
+                    100% {
+                        transform: translateY(0%);
+                    }
+                }
+            `
+            // 将css字符串插入
+            let styleDom = document.createElement('style')
+            styleDom.id = 'bounce'
+            document.head.append(styleDom)
+            let styleSheet = [].find.call(document.styleSheets, sheet => sheet.ownerNode === styleDom)
+            styleSheet.insertRule(containerBounceKeyframes)
+
+            let numBounceKeyframes
+            for (let i = 0; i <= 9; ++i) {
+                let baseY = i * -9.09
+                numBounceKeyframes = `
+                    @keyframes num-bounce-${i} {
+                        0% {
+                            transform: translateY(${baseY + offsetArr[0]}%);
+                            filter: none;
+                        }
+                        25% {
+                            transform: translateY(${baseY + offsetArr[1]}%);
+                        }
+                        50% {
+                            transform: translateY(${baseY + offsetArr[2]}%);
+                        }
+                        75% {
+                            transform: translateY(${baseY + offsetArr[3]}%);
+                        }
+                        85% {
+                            transform: translateY(${baseY + offsetArr[4]}%);
+                        }
+                        100% {
+                            transform: translateY(${baseY}%);
+                        }
+                    }
+                `
+                styleSheet.insertRule(numBounceKeyframes)
+            }
+          
+        }
+    </script>
+</body>
+</html>
